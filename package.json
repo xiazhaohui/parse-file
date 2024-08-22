@@ -1,5 +1,5 @@
 {
-  "name": "parse-file",
+  "name": "@xiazhaohui/parse-file",
   "version": "0.0.1",
   "description": "",
   "main": "index.ts",
