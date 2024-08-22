@@ -28,7 +28,7 @@ export const fileToArrayBuffer = async (
   }
   const sliceFileBuffer = arrayBuffers?.slice(0, 1000);
   const totalLength = sliceFileBuffer.reduce(
-    (acc, buffer) => acc + (buffer as any).byteLength,
+    (acc: any, buffer: any) => acc + (buffer as any).byteLength,
     0
   );
 
