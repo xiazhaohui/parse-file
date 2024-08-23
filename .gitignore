@@ -1,10 +1,2 @@
-# Custom ignore
-build/
-dist/
-package-lock.json
-pnpm-lock.yaml
-
-.vscode/*
-
 # Dependency directories
 node_modules/
