@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES5",                       // 编译后的JavaScript版本（如：es5、es6、esnext）
+    "module": "ESNext",                  // 使用的模块系统（如：commonjs、es6、amd）
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "jsx": "react",
+    "strict": true,                        // 启用所有的严格类型检查选项
+    "esModuleInterop": true,               // 允许从CommonJS导入默认模块
+    "skipLibCheck": true,                  // 跳过库文件的类型检查
+    "forceConsistentCasingInFileNames": true, // 文件名保持大小写一致
+    "outDir": "./dist"
+  },
+  "include": ["*.ts"],               // 包含的TypeScript文件路径
+  "exclude": ["node_modules"]               // 排除的文件夹
+}

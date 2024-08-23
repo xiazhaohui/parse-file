@@ -2,7 +2,7 @@ import IMAGE_FILE_EXTENSION_LIST from "./src/extensions/image";
 import VIDEO_FILE_EXTENSION_LIST from "./src/extensions/video";
 import IMAGE_FILE_SIGNATURES from "./src/signatures/image";
 import VIDEO_FILE_SIGNATURES from "./src/signatures/video";
-import { TParseFileInfo } from "./src/types";
+import { TParseFileInfo } from "./src/types/index";
 import {
   fileToArrayBuffer,
   getFileSize,
@@ -37,11 +37,11 @@ export const parseFile = async (file: File): Promise<TParseFileInfo> => {
     ?.toUpperCase();
 
   const isImage =
-    IMAGE_FILE_EXTENSION_LIST.has(fileExtension) &&
+    IMAGE_FILE_EXTENSION_LIST.includes(fileExtension) &&
     fileTypeHeader === "image" &&
     IMAGE_FILE_SIGNATURES.some((item) => hexString.startsWith(item));
   const isVideo =
-    VIDEO_FILE_EXTENSION_LIST.has(fileExtension) &&
+    VIDEO_FILE_EXTENSION_LIST.includes(fileExtension) &&
     fileTypeHeader === "video" &&
     VIDEO_FILE_SIGNATURES.some((item) => hexString.startsWith(item));
   const isAudio = fileTypeHeader === "audio";
