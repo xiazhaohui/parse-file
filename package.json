@@ -4,12 +4,24 @@
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "publisher": "lesslessmorexzh@gmail.com",
   "scripts": {
     "build": "tsc"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "@xiazhaohui/parse-file",
+    "parse-file",
+    "解析文件",
+    "文件解析",
+    "校验文件",
+    "文件校验",
+    "魔术数字",
+    "文件签名",
+    "文件扩展名"
+  ],
+  "author": "lesslessmore",
+  "license": "MIT",
+  "homepage": "https://github.com/xiazhaohui/parse-file",
   "dependencies": {
     "typescript": "^5.5.4"
   }
