@@ -1,3 +1,9 @@
+import IMAGE_FILE_SIGNATURES from "../signatures/image";
+import VIDEO_FILE_SIGNATURES from "../signatures/video";
+import AUDIO_FILE_SIGNATURES, {
+  AUDIO_M4A_FILE_SIGNATURES,
+} from "../signatures/audio";
+
 export const readFileChunk = (file: File, start: number, end: number) => {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -84,3 +90,36 @@ export function getFileSuffixName(fileName: string) {
 
   return fileSuffix;
 }
+
+/**
+ * @description: 文件签名类型
+ * @description: 视频文件签名的排列规律不同其他，box大小不确定，只有ftyp和后面的兼容标准可确定；
+ * @description: m4a音频文件签名的排列规律不同其他音频文件，和视频文件签名逻辑相似，box大小不确定，只有ftyp和后面的兼容标准可确定；
+ * @param {string} hexString 十六进制字符串
+ * @param {string} mediaType 媒体类型
+ */
+export const getSignatureType = (hexString: string, mediaType: string) => {
+  const fileType = mediaType.split("/")[0];
+  let type = fileType;
+
+  if (IMAGE_FILE_SIGNATURES.some((item) => hexString.startsWith(item))) {
+    type = "image";
+  }
+  if (VIDEO_FILE_SIGNATURES.some((item) => hexString.includes(item))) {
+    type = "video";
+  }
+  if (
+    mediaType === "audio/x-m4a" &&
+    AUDIO_M4A_FILE_SIGNATURES.some((item) => hexString.includes(item))
+  ) {
+    type = "audio";
+  }
+  if (
+    mediaType !== "audio/x-m4a" &&
+    AUDIO_FILE_SIGNATURES.some((item) => hexString.startsWith(item))
+  ) {
+    type = "audio";
+  }
+
+  return type;
+};
