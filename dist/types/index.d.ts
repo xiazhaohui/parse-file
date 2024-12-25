@@ -1,4 +1,4 @@
-import { TParseFileInfo } from "./src/types/index";
+import { TParseFileInfo } from "./types/index";
 /**
  * @description: 解析文件
  * @param {File} file 文件

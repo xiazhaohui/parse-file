@@ -1,12 +1,8 @@
-import IMAGE_FILE_EXTENSION_LIST from "./src/extensions/image";
-import VIDEO_FILE_EXTENSION_LIST from "./src/extensions/video";
-import AUDIO_FILE_ENTENSION_LIST from "./src/extensions/audio";
-import { TParseFileInfo } from "./src/types/index";
-import {
-  getFileSize,
-  getFileSuffixName,
-  getSignatureType,
-} from "./src/utils/file";
+import IMAGE_FILE_EXTENSION_LIST from "./extensions/image";
+import VIDEO_FILE_EXTENSION_LIST from "./extensions/video";
+import AUDIO_FILE_ENTENSION_LIST from "./extensions/audio";
+import { TParseFileInfo } from "./types/index";
+import { getFileSize, getFileSuffixName, getSignatureType } from "./utils/file";
 
 /**
  * @description: 解析文件

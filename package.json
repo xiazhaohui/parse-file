@@ -1,12 +1,23 @@
 {
   "name": "@xiazhaohui/parse-file",
-  "version": "0.0.6",
   "description": "",
-  "main": "dist/index.js",
+  "version": "0.0.6",
+  "main": "dist/index.umd.js",
+  "exports":{
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./dist/index.esm.js",  
+      "require": "./dist/index.umd.js" 
+    }
+  },
   "types": "dist/index.d.ts",
   "publisher": "lesslessmorexzh@gmail.com",
   "scripts": {
-    "build": "tsc"
+    "build:tsc": "tsc",
+    "build:webpack": "webpack --mode production",
+    "build:esm": "webpack --config webpack.config.js --env format=esm",
+    "build:umd": "webpack --config webpack.config.js --env format=umd",
+    "build": "rm -rf dist && npm run build:esm && npm run build:umd"
   },
   "keywords": [
     "@xiazhaohui/parse-file",
@@ -22,7 +33,14 @@
   "author": "lesslessmore",
   "license": "MIT",
   "homepage": "https://github.com/xiazhaohui/parse-file",
+  "devDependencies": {
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.7.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  },
   "dependencies": {
-    "typescript": "^5.5.4"
+    "clean-webpack-plugin": "^4.0.0",
+    "path": "^0.12.7"
   }
 }
