@@ -1,13 +1,13 @@
 {
   "name": "@xiazhaohui/parse-file",
   "description": "",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "dist/index.umd.js",
-  "exports":{
+  "exports": {
     "./package.json": "./package.json",
     ".": {
-      "import": "./dist/index.esm.js",  
-      "require": "./dist/index.umd.js" 
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.umd.js"
     }
   },
   "types": "dist/index.d.ts",
