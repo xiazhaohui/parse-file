@@ -9,7 +9,7 @@ module.exports = (env) => {
     mode: "production",
     entry: "./src/index.ts",
     output: {
-      filename: format === "esm" ? "index.esm.js" : "index.umd.js",
+      filename: isESM ? "index.esm.js" : "index.umd.js",
       path: path.resolve(__dirname, "dist"),
       library: isESM
         ? { type: "module" }
